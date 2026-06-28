@@ -3,22 +3,20 @@ import mysql.connector
 import pandas as pd
 import numpy as np
 import streamlit as st
-MYSQL_HOST = st.secrets["mysql.railway.internal"]
-MYSQL_USER = st.secrets["root"]
-MYSQL_PASSWORD = st.secrets["HxfVqsFkuNfOKKfKtaDElGbeAxEssJiN"]
-MYSQL_DATABASE = st.secrets["railway"]
-MYSQL_PORT = st.secrets["3306"]
+MYSQL_HOST     = st.secrets["MYSQL_HOST"]
+MYSQL_USER     = st.secrets["MYSQL_USER"]
+MYSQL_PASSWORD = st.secrets["MYSQL_PASSWORD"]
+MYSQL_DATABASE = st.secrets["MYSQL_DATABASE"]
+MYSQL_PORT     = int(st.secrets["MYSQL_PORT"])
 def connect_db():
     con = mysql.connector.connect(
-    host="mysql.railway.internal",
-    user="root",
-    password="HxfVqsFkuNfOKKfKtaDElGbeAxEssJiN",
-    database="railway",
-    port="3306",
-)
+        host=MYSQL_HOST,
+        user=MYSQL_USER,
+        password=MYSQL_PASSWORD,
+        database=MYSQL_DATABASE,
+        port=MYSQL_PORT,
+    )
     return con
-
-
 def table_exists(con):
     cursor = con.cursor()
     cursor.execute("SHOW TABLES LIKE 'training_data'")
