@@ -2,22 +2,20 @@
 import mysql.connector
 import pandas as pd
 import numpy as np
-
-from config import (
-    MYSQL_HOST,
-    MYSQL_USER,
-    MYSQL_PASSWORD,
-    MYSQL_DATABASE,
-)
-
-
+import streamlit as st
+MYSQL_HOST = st.secrets["mysql.railway.internal"]
+MYSQL_USER = st.secrets["root"]
+MYSQL_PASSWORD = st.secrets["HxfVqsFkuNfOKKfKtaDElGbeAxEssJiN"]
+MYSQL_DATABASE = st.secrets["railway"]
+MYSQL_PORT = st.secrets["3306"]
 def connect_db():
     con = mysql.connector.connect(
-        host=MYSQL_HOST,
-        user=MYSQL_USER,
-        password=MYSQL_PASSWORD,
-        database=MYSQL_DATABASE,
-    )
+    host="mysql.railway.internal",
+    user="root",
+    password="HxfVqsFkuNfOKKfKtaDElGbeAxEssJiN",
+    database="railway",
+    port="3306",
+)
     return con
 
 
