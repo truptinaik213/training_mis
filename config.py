@@ -1,4 +1,6 @@
-MYSQL_HOST = "localhost"
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "Truepti213"
-MYSQL_DATABASE = "training_mis"
+import streamlit as st
+
+MYSQL_HOST     = st.secrets["MYSQL_HOST"]
+MYSQL_USER     = st.secrets["MYSQL_USER"]
+MYSQL_PASSWORD = st.secrets["MYSQL_PASSWORD"]
+MYSQL_DATABASE = st.secrets["MYSQL_DATABASE"]
